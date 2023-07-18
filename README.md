@@ -25,14 +25,14 @@ There should be four files in the rivet_analyses: STAR_2006_I709170.cc, STAR_200
 
 ### Step 2: Edit JETSCAPE file
 
-Open another terminal outside of the docker container. Using your preferred text editor, modify JETSCAPEFIFO/config/jetscape_fifo.xml.
+Open another terminal outside of the docker container. Using your preferred text editor, modify JETSCAPEFIFO/config/jetscape_fifo.xml. (A modified version is included this directory.)
 
 ### Step 3: Edit files for Rivet analysis
 #### STAR_2006_I709170.cc
-Outside of the docker container and using your preferred text editor, modify rivet_analyses/STAR_2006_I709170.cc.
+Outside of the docker container and using your preferred text editor, modify rivet_analyses/STAR_2006_I709170.cc. (A modified version is included this directory.)
 
 #### STAR_2006_I709170.plot
-Outside of the docker container and using your preferred text editor, modify rivet_analyses/STAR_2006_I709170.plot.
+Outside of the docker container and using your preferred text editor, modify rivet_analyses/STAR_2006_I709170.plot. (A modified version is included this directory.)
 
 
 ### Step 4: Compile and run JETSCAPE and Rivet
