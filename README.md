@@ -1,7 +1,7 @@
 # RIVET/JETSCAPE TUTORIAL
 
 ## Installation
-Install JETSCAPE FIFO  https://github.com/tmengel/JETSCAPEFIFO/tree/main
+Install JETSCAPE FIFO: https://github.com/tmengel/JETSCAPEFIFO/tree/main
 
 ### Step 1:
 Open the docker container and source Rivet.
