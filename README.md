@@ -25,18 +25,7 @@ There should be four files in the rivet_analyses: STAR_2006_I709170.cc, STAR_200
 
 ### Step 2: Edit JETSCAPE file
 
-Open another terminal outside of the docker container. Using your preferred text editor, modify JETSCAPEFIFO/config/jetscape_fifo.xml. Change the following
-
-<nEvents> 10000 </nEvents>
-
-<Hard>
-  <PythiaGun>
-    <pTHatMin>0</pTHatMin>
-    <pTHatMax>1000</pTHatMax>
-    <eCM>200</eCM>
-  </PythiaGun>
-</Hard>
-
+Open another terminal outside of the docker container. Using your preferred text editor, modify JETSCAPEFIFO/config/jetscape_fifo.xml.
 
 ### Step 3: Edit files for Rivet analysis
 #### STAR_2006_I709170.cc
