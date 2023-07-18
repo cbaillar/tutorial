@@ -5,11 +5,11 @@ Install JETSCAPE FIFO: https://github.com/tmengel/JETSCAPEFIFO/tree/main
 
 ### Step 1:
 Open the docker container and source Rivet.
-    ```
-    docker start -ai myJetscapeRivet
-    
-    source ~/RIVET/local/rivetenv.sh
-    ```
+```
+docker start -ai myJetscapeRivet
+
+source ~/RIVET/local/rivetenv.sh
+```
 
 ### Step 1: Create New Docker Container
  Get the template files for the analysis.
