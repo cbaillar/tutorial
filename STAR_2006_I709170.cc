@@ -53,7 +53,7 @@ namespace Rivet {
 
     /// Normalise histograms etc., after the run
     void finalize() {
-      divide(hPionPt["piminus"], hPionPt["piminus"], Ratio["piminus_piplus"]);
+      divide(hPionPt["piminus"], hPionPt["piplus"], Ratio["piminus_piplus"]);
 
       const YODA::Scatter1D factor = (1./(2.*M_PI)) / *sow["sow_pp"];
       scale(hPionPt["piplus"], factor);
