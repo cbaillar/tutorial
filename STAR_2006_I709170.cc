@@ -26,8 +26,8 @@ namespace Rivet {
       pionfs.acceptIdPair(PID::PIPLUS);
       declare(pionfs, "PionFS");
 
-      book(hPionPt["piplus"], 2, 1, 1); // full range pion binning
-      book(hPionPt["piminus"], 7, 1, 1); // full range pion binning
+      book(hPionPt["piplus"], 2, 1, 1);
+      book(hPionPt["piminus"], 7, 1, 1);
       book(Ratio["piminus_piplus"], 23, 1, 2);
 
       book(sow["sow_pp"],"sow_pp");
