@@ -7,6 +7,7 @@ Install JETSCAPE FIFO: https://github.com/tmengel/JETSCAPEFIFO/tree/main
 Open the docker container and source Rivet.
     ```
     docker start -ai myJetscapeRivet
+    
     source ~/RIVET/local/rivetenv.sh
     ```
 
@@ -14,6 +15,7 @@ Open the docker container and source Rivet.
  Get the template files for the analysis.
 ```
 mkdir rivet_analyses
+
 cd rivet_analyses
 
 rivet-mkanalysis STAR_2006_I709170
