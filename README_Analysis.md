@@ -62,7 +62,7 @@ Change the following values in the JETSCAPEFIFO/config/jetscape_fifo.xml file
 ```
 
 ### Step 2 b: Compile and run JETSCAPE
-Inside the docker container, compile the Rivet analysis. Then, run JETSCAPE and Rivet in fifo mode. We will apply a 20 second sleep delay to Rivet, so that JETSCAPE has time to begin writing to myfifo.hepmc.
+Inside the docker container, compile the Rivet analysis. then lets run jetscape to get our output files!
 
 ```
 cd /home/jetscape-rivet-user/rivet_analysis
@@ -83,17 +83,33 @@ cd /home/jetscape-rivet-user/rivet_analysis
 rivet --pwd -a MY_FIRST_ANALYSIS --ignore-beams -o /home/jetscape-rivet-user/JETSCAPEFIFO/build/myHepmcoutput.hepmc pp200.yoda
 ```
 
-this should run and give you a bunch of output! lets take a look :) 
+this should run and give you a bunch of output! lets take a look at the yoda file :) 
 
 ```
 ls -alrth
+less pp200.yoda
 ```
 
-### Step 3 - a, lets take a look at the output! 
-
-
 Lets have some fun now! add ROOT into the game! 
-### Step 5: Root Histograms
 
+### Step 5: Adding Root Histograms
 
-### Step 6: Rivet with Root
+there is a separate analysis in this repo called MY_FIRST_ROOT_ANALYSIS.cc, so lets create our own! 
+```
+rivet-mkanalysis MY_FIRST_ROOT_ANALYSIS 
+```
+
+Now lets edit the analysis in our favorite editor and then you can build it like so - 
+
+```
+rivet-build RivetMY_FIRST_ROOT_ANALYSIS.so MY_FIRST_ROOT_ANALYSIS.cc $(root-config --cflags --libs)
+```
+
+### Step 6: Running Rivet with Root
+
+```
+rivet -a MY_FIRST_ROOT_ANALYSIS --pwd --ignore-beams ../JETSCAPEFIFO/build/myHepmcoutput.hepmc -o dummy.yoda
+```
+Lets take a look at the output root file!!
+
+that ends the day! Looking forward to continuing next week folks! 
