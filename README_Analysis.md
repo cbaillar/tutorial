@@ -79,7 +79,7 @@ this should give you an output hepmc file!
 
 ```
 cd /home/jetscape-rivet-user/rivet_analyses 
-rivet --pwd -a MY_FIRST_ANALYSIS --ignore-beams -o /home/jetscape-rivet-user/JETSCAPEFIFO/build/myHepmcoutput.hepmc pp200.yoda
+rivet --pwd -a MY_FIRST_ANALYSIS --ignore-beams -o pp200.yoda /home/jetscape-rivet-user/JETSCAPEFIFO/build/myHepmcoutput.hepmc
 ```
 
 this should run and give you a bunch of output! lets take a look at the yoda file :) 
