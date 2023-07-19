@@ -1,7 +1,7 @@
 # JETSCAPE w/ RIVET install 
 
 ### Step 0: Create  New Docker Container
- Create a new container using a JETSCAPE image that has RIVET dependencies per-installed.
+ Create a new container using a JETSCAPE image that has RIVET dependencies pre-installed.
  #### macOS
 ```
 cd ~
