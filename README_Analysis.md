@@ -25,7 +25,7 @@ Ask RIVET to make the template files for the analysis.
 ### Step 1 a: Make Analysis
 Get the template files for the analysis.
 ```
-cd /home/jetscape-rivet-user/rivet_analysis
+cd /home/jetscape-rivet-user
 mkdir rivet_analyses
 cd rivet_analyses
 rivet-mkanalysis MY_FIRST_ANALYSIS
@@ -65,7 +65,7 @@ Change the following values in the JETSCAPEFIFO/config/jetscape_fifo.xml file
 Inside the docker container, compile the Rivet analysis. then lets run jetscape to get our output files!
 
 ```
-cd /home/jetscape-rivet-user/rivet_analysis
+cd /home/jetscape-rivet-user/rivet_analyses
 
 rivet-build RivetMY_FIRST_ANALYSIS.so MY_FIRST_ANALYSIS.cc
 
@@ -79,7 +79,7 @@ this should give you an output hepmc file!
 ### Step 3: Run Rivet
 
 ```
-cd /home/jetscape-rivet-user/rivet_analysis 
+cd /home/jetscape-rivet-user/rivet_analyses 
 rivet --pwd -a MY_FIRST_ANALYSIS --ignore-beams -o /home/jetscape-rivet-user/JETSCAPEFIFO/build/myHepmcoutput.hepmc pp200.yoda
 ```
 
