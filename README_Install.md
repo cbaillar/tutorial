@@ -47,7 +47,7 @@ Within the docker container you should see **I have no name!@...:~**. This shows
  cd JETSCAPEFIFO/external_packages
 ./get_rivet.sh mac
 ```
-This will bootstrap rivet in a new directory `/home/jetscape-rivet-user/JETSCAPEFIFO/RIVET`. This process will take about 15-20 minutes.
+This will bootstrap rivet in a new directory `/home/jetscape-rivet-user/RIVET`. This process will take about 15-20 minutes.
 
 ### Step 2 - a Source the rivet install
 ```
