@@ -5,7 +5,7 @@ To start the docker -
 docker run -it -v ~/jetscape-rivet-docker:/home/jetscape-rivet-user --name myJetscapeRivet --rm -p 8888:8888 tmengel/jetscaperivet:latest
 ```
 
-### Step 0: Get analyses to compare - 
+### Step 0 a: Get analyses to compare - 
 
 Now if you do this outside the docker container - 
 ```
@@ -19,11 +19,14 @@ cd /home/jetscape-rivet-user/
 git clone https://github.com/cbaillar/tutorial.git
 ```
 
-### Step 0 - a Now onwards - we are inside the docker container! 
+### Step 0 b: Now onwards - we are inside the docker container! 
 
-Ask RIVET to make the template files for the analysis.
+Source the RIVET install.
+```
+source /home/jetscape-rivet-user/RIVET/local/rivetenv.sh
+```
 ### Step 1 a: Make Analysis
-Get the template files for the analysis.
+Ask RIVET to make the template files for the analysis.
 ```
 cd /home/jetscape-rivet-user
 mkdir rivet_analyses
