@@ -7,14 +7,13 @@
 cd ~
 mkdir jetscape-rivet-docker
 cd jetscape-rivet-docker
-docker run -it -v ~/jetscape-rivet-docker:/home/jetscape-rivet-user --name
-    myJetscapeRivet -p 8888:8888 tmengel/jetscaperivet:latest
+docker run -it -v ~/jetscape-rivet-docker:/home/jetscape-rivet-user --name myJetscapeRivet --rm -p 8888:8888 tmengel/jetscaperivet:latest
 ```
 
  #### linux
 ```
 docker run -it -v ~/jetscape-docker:/home/jetscape-rivet-user --name
-    myJetscapeRivet -p 8888:8888 --user $(id -u):$(id -g)
+    myJetscapeRivet -p 8888:8888 --user $(id -u):$(id -g) --rm
     tmengel/jetscaperivet:latest
 ```
 
