@@ -31,8 +31,7 @@ cd rivet_analyses
 rivet-mkanalysis MY_FIRST_ANALYSIS
 ```
 this should create three files in the directory
-MY_FIRST_ANALYSIS.cc, MY_FIRST_ANALYSIS.plot, MY_FIRST_ANALYSIS.info
-and a directory rivet-plots - this we will ignore for now... 
+MY_FIRST_ANALYSIS.cc, MY_FIRST_ANALYSIS.plot, and MY_FIRST_ANALYSIS.info 
 
 ### Step 1 b: Edit files for Rivet analysis
 #### MY_FIRST_ANALYSIS.cc
