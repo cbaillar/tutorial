@@ -1,29 +1,25 @@
 <?xml version="1.0"?>
 
 <jetscape>
-
-  <nEvents> 10000 </nEvents>
-
-  <outputFilename>myfifo</outputFilename>
-  <JetScapeWriterHepMCfifo> on </JetScapeWriterHepMCfifo>
-  <!-- <JetScapeWriterHepMC> on </JetScapeWriterHepMC> -->
-
-  <Random>
-    <seed>0</seed>
-  </Random>
+  
+  <nEvents> 100 </nEvents>
+  
+  <outputFilename>myHepmcoutput</outputFilename>
+  <!-- <JetScapeWriterHepMCfifo> on </JetScapeWriterHepMCfifo> -->
+  <JetScapeWriterHepMC> on </JetScapeWriterHepMC>
 
   <!-- Hard Process -->
   <Hard>
     <PythiaGun>
-      <pTHatMin>0</pTHatMin>
-      <pTHatMax>1000</pTHatMax>
+      <pTHatMin>4</pTHatMin>
+      <pTHatMax>40</pTHatMax>
       <eCM>200</eCM>
     </PythiaGun>
   </Hard>
-
+  
   <!--Eloss Modules -->
   <Eloss>
-    <Matter>
+    <Matter> 
       <Q0> 1.0 </Q0>
       <in_vac> 1 </in_vac>
       <vir_factor> 0.25 </vir_factor>
@@ -32,10 +28,10 @@
       <brick_med> 0 </brick_med>
     </Matter>
   </Eloss>
-
+  
   <!-- Jet Hadronization Module -->
   <JetHadronization>
     <name>colorless</name>
   </JetHadronization>
-
+  
 </jetscape>
