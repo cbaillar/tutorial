@@ -5,17 +5,17 @@ To start the docker -
 docker run -it -v ~/jetscape-rivet-docker:/home/jetscape-rivet-user --name myJetscapeRivet --rm -p 8888:8888 tmengel/jetscaperivet:latest
 ```
 
-### Step 0: Get analysis to compare - 
+### Step 0: Get analyses to compare - 
 
 Now if you do this outside the docker container - 
 ```
-cd ~/jetscape-rivet-docker/rivet_analysis
+cd ~/jetscape-rivet-docker/
 git clone https://github.com/cbaillar/tutorial.git
 ```
 
 Now if you do this inside the docker container - 
 ```
-cd /home/jetscape-rivet-user/rivet_analysis
+cd /home/jetscape-rivet-user/
 git clone https://github.com/cbaillar/tutorial.git
 ```
 
