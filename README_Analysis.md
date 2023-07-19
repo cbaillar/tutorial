@@ -44,32 +44,55 @@ We have a comparison analysis in the tutorial github directory which you can com
 
 Open another terminal outside of the docker container. Using your preferred text editor, modify JETSCAPEFIFO/config/jetscape_fifo.xml.
 
+Change the following values in the JETSCAPEFIFO/config/jetscape_fifo.xml file
+```
+  <nEvents> 100 </nEvents>
+
+  <outputFilename>myHepmcoutput</outputFilename>
+  <!-- <JetScapeWriterHepMCfifo> on </JetScapeWriterHepMCfifo> -->
+  <JetScapeWriterHepMC> on </JetScapeWriterHepMC>
+
+  <Hard>
+    <PythiaGun>
+      <pTHatMin>5</pTHatMin>
+      <pTHatMax>40</pTHatMax>
+      <eCM>200</eCM>
+    </PythiaGun>
+  </Hard>
+```
+
 ### Step 2 b: Compile and run JETSCAPE
 Inside the docker container, compile the Rivet analysis. Then, run JETSCAPE and Rivet in fifo mode. We will apply a 20 second sleep delay to Rivet, so that JETSCAPE has time to begin writing to myfifo.hepmc.
 
 ```
-cd ~/rivet_analyses
+cd /home/jetscape-rivet-user/rivet_analysis
 
-rivet-build RivetSTAR_2006_I709170.so STAR_2006_I709170.cc
+rivet-build RivetMY_FIRST_ANALYSIS.so MY_FIRST_ANALYSIS.cc
 
 cd ../JETSCAPEFIFO/build
 
 ./runJetscape ../config/jetscape_fifo.xml
 ```
+this should give you an output hepmc file! 
+
+
 ### Step 3: Run Rivet
 
 ```
-rivet --analysis-path ../../rivet_analyses -a STAR_2006_I709170 --ignore-beams -o ../../rivet_analyses/pp200.yoda myfifo.hepmc
+cd /home/jetscape-rivet-user/rivet_analysis 
+rivet --pwd -a MY_FIRST_ANALYSIS --ignore-beams -o /home/jetscape-rivet-user/JETSCAPEFIFO/build/myHepmcoutput.hepmc pp200.yoda
 ```
 
-### Step 4: Make html (alternative)
+this should run and give you a bunch of output! lets take a look :) 
 
 ```
-cd ../../rivet_analyses
-
-rivet-mkhtml pp200.yoda
+ls -alrth
 ```
 
+### Step 3 - a, lets take a look at the output! 
+
+
+Lets have some fun now! add ROOT into the game! 
 ### Step 5: Root Histograms
 
 
