@@ -51,7 +51,7 @@ This will bootstrap rivet in a new directory `/home/jetscape-rivet-user/JETSCAPE
 
 ### Step 2 - a Source the rivet install
 ```
-source /home/jetscape-rivet-user/JETSCAPEFIFO/RIVE/local/rivetenv.sh 
+source /home/jetscape-rivet-user/RIVET/local/bin/rivet
 ```
 
 ### Step 3: Build JETSCAPE
