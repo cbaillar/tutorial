@@ -116,4 +116,10 @@ rivet -a MY_FIRST_ROOT_ANALYSIS --pwd --ignore-beams ../JETSCAPEFIFO/build/myHep
 ```
 Lets take a look at the output root file!!
 
+### Step 7 - get analysis from published paper with hepdata 
+```
+rivet-mkanalysis STAR_2006_I709170
+```
+then compile as usual after you fix the code from the example provided. then compile and enjoy! 
+
 that ends the day! Looking forward to continuing next week folks! 
