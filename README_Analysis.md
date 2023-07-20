@@ -77,6 +77,8 @@ cd ../JETSCAPEFIFO/build
 ```
 this should give you an output hepmc file! 
 
+### Step 2 c : INCASE you dont have jetscape running in the docker yet - please download a sample hepmc file from here - 
+https://drive.google.com/file/d/11ULqu_4qISVTcNnEInUBxIbFcyll2r3z/view?usp=sharing
 
 ### Step 3: Run Rivet
 
