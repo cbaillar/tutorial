@@ -6,7 +6,7 @@
   <setReuseHydro> true </setReuseHydro>
   <nReuseHydro> 10 </nReuseHydro>
 
-  <outputFilename>test_auau</outputFilename>
+  <outputFilename>auau200</outputFilename>
   <JetScapeWriterAscii> on </JetScapeWriterAscii>
   <JetScapeWriterHepMC> on </JetScapeWriterHepMC>
 
