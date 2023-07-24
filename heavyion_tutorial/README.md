@@ -96,10 +96,9 @@ cp ../tutorial/heavyion_tutorial/calibration_ALICE_PbPb2760GeV.yoda heavyion
 We need to download the following packages (not sure if we need all...)
 ```
 cd /home/jetscape-rivet-user/JETSCAPEFIFO/external_packages
-./get_freestream-milne.sh
+./get_lbtTab.sh
 ./get_music.sh
 ./get_iSS.sh
-./get_lbtTab.sh
 ```
 ### Step 0 d: Build JETSCAPE with MUSIC and iSS
 
@@ -108,7 +107,7 @@ cd ../
 rm -r build
 mkdir build
 cd build
-cmake .. -DUSE_MUSIC=ON -DUSE_ISS=ON -DUSE_FREESTREAM=ON
+cmake .. -DUSE_MUSIC=ON -DUSE_ISS=ON
 make -j4
 ```
 
