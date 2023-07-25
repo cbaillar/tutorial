@@ -39,7 +39,7 @@ namespace Rivet {
       book(h["charged_pT_cent6090"], "charged_pT_cent6090", 60, 0.0, 30.0);
       book(h["neutral_pT_cent6090"], "neutral_pT_cent6090", 60, 0.0, 30.0);
 
-      book(sow["sow_cent0010"], "sow_cent0010");
+      book(sow["sow_cent0030"], "sow_cent0030");
       book(sow["sow_cent3060"], "sow_cent3060");
       book(sow["sow_cent6090"], "sow_cent6090");
     }
