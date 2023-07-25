@@ -4,7 +4,7 @@
 
 1.) Create a **separate** terminal window. In that window, run:
 ```bash
-docker run -it -v ~/jetscape-rivet-docker:/home/ --name myRivet --rm -p 8888:8888 hepstore/rivet:3.1.8
+docker run -it -v ~/jetscape-rivet-docker:/work/ --name myRivet --rm -p 8888:8888 hepstore/rivet:3.1.8
 ```
 Even if you've pulled it before, try pulling to make sure it is up-to-date.
 
