@@ -14,14 +14,14 @@ cd ~/jetscape-rivet-docker
 ```
 2.) Now, let's run a container:
 ```bash
-docker run -it -v --rm ~/jetscape-rivet-docker:/home/jetscape-rivet-user --name myRivet hepstore/rivet
+docker run -it --rm -v ~/jetscape-rivet-docker:/home/jetscape-rivet-user --name myRivet hepstore/rivet
 ```
 <details>
 <summary>A brief explanation of each option in the command:</summary>
  
 * -it creates an interactive terminal for the container
-* -v "mounts" your container onto a directory on your local computer. This will save you from having to copy files back and forth between your local computer and your container.
 * --rm Will remove the container when you exit your container. This is not a big deal though since your progress will be saved through your mounted directory.
+* -v "mounts" your container onto a directory on your local computer. This will save you from having to copy files back and forth between your local computer and your container.
 * --name names your container. If you don't give your container a name, docker will give it a random and perhaps fun name :). You can check out the names of all of your containers by using the ```docker container ls``` command
 * The last argument is the docker image: ```hepstore/rivet```! <br>
 For more, run
@@ -71,18 +71,15 @@ For more, run
 ```bash
 rivet-mkhtml -h
 ```
-
 </details>
 
-
-
 ### Step 0 b: Get analyses to compare
-To start the docker
+Open another terminal and run the myJetscapeRivet container.
 ```
 docker run -it -v ~/jetscape-rivet-docker:/home/jetscape-rivet-user --name myJetscapeRivet --rm -p 8888:8888 tmengel/jetscaperivet:latest
 ```
 
-Now, inside the docker container,
+Now, we will put our calibration file in a new working directory.
 ```
 cd /home/jetscape-rivet-user/tutorial
 git pull
@@ -91,16 +88,16 @@ mkdir heavyion
 cp ../tutorial/heavyion_tutorial/calibration_ALICE_PbPb2760GeV.yoda heavyion
 ```
 
-### Step 0 c: Download necessary code packages
+### Step 0 c: Build JETSCAPE with LBT-tables, MUSIC, and iSS
 
-We need to download the following packages (not sure if we need all...)
+We will download the following packages 
 ```
 cd /home/jetscape-rivet-user/JETSCAPEFIFO/external_packages
 ./get_lbtTab.sh
 ./get_music.sh
 ./get_iSS.sh
 ```
-### Step 0 d: Build JETSCAPE with MUSIC and iSS
+then, rebuild JETSCAPE
 
 ```
 cd ../
@@ -112,24 +109,24 @@ make -j4
 ```
 
 ### Step 0 d: Use Hydro Sample
-
+Let's use a hydro sample from the examples for this tutorial.
 ```
 cd ../examples
 ./get_hydroSample_PbPb2760_cen_00-05.sh
 ```
 
 ### Step 1: Source Rivet and Make Analysis
-Let's make sure to source Rivet and get analyses template files.
+Make sure to source Rivet and get analyses template files.
 ```
 source /home/jetscape-rivet-user/RIVET/local/rivetenv.sh
 
 cd /home/jetscape-rivet-user/rivet_analyses/heavyion
-rivet-mkanaylsis heavy_ion_analysis
+rivet-mkanaylsis HEAVY_ION_ANALYSIS
 ```
 
 ### Step 2: Edit JETSCAPE file
 
-Using your preferred text editor, modify JETSCAPEFIFO/config/jetscape_user_pbpb-grid.xml
+Using your preferred text editor, modify jetscape_user_pbpb-grid.xml
 
 Change the following values in the JETSCAPEFIFO/config/jetscape_user_pbpb-grid.xml file
 ```
@@ -183,40 +180,38 @@ Change the following values in the JETSCAPEFIFO/config/jetscape_user_pbpb-grid.x
 </Hydro>
 ```
 
-### Step 3: Compile and run JETSCAPE
-Inside the docker container, compile the Rivet analysis. then lets run jetscape to get our output files!
+### Step 3: Run JETSCAPE
+Run JETSCAPE to get our output files. 
 
 For pbpb:
 ```
 cd /home/jetscape-rivet-user/JETSCAPEFIFO/build
 ./runJetscape ../config/jetscape_user_pbpb-grid.xml
 ```
-For pp:
-```
-cd /home/jetscape-rivet-user/JETSCAPEFIFO/build
-./runJetscape ../config/jetscape_user_PP19.xml
-```
+This will take some time, so let's start on our Rivet analysis.
 
-this should give you an output hepmc file!
-
-### Step 3 a : INCASE you dont have jetscape running in the docker yet - please download a sample hepmc file from here -
+### Step 3 a : INCASE you dont have JETSCAPE running in the docker yet - please download a sample hepmc file from here -
 https://drive.google.com/file/d/11ULqu_4qISVTcNnEInUBxIbFcyll2r3z/view?usp=sharing
 
-### Step 4: Run Rivet
-Need to
+### Step 4: Edit files for Rivet Analysis
+Using your preferred text editor, modify HEAVY_ION_ANALYSIS.cc (/home/jetscape-rivet-user/rivet_analyses/heavyion/HEAVY_ION_ANALYSIS.cc)
+
+
+### Step 5: Run Rivet
+Go back to the myJetscapeRivet container. Now, we want to run our analysis!
 ```
 cd /home/jetscape-rivet-user/rivet_analyses/heavyion
 rivet-build RivetHEAVY_ION_ANALYSIS.so HEAVY_ION_ANALYSIS.cc
 rivet --pwd -p calibration_ALICE_PbPb2760GeV.yoda -a HEAVY_ION_ANALYSIS:cent=GEN --ignore-beams -o PbPb2760.yoda /home/jetscape-rivet-user/JETSCAPEFIFO/build/PbPb2760.hepmc
 ```
-this should run and give you a bunch of output! lets take a look at the yoda file :)
+This should run and give you a bunch of output! Let's take a look at the yoda file :)
 
 ```
 ls -alrth
 less PbPb2760.yoda
 ```
 
-### Step 5: Rivet-Make html (Joesph update)
+### Step 6: Rivet-Make html (Joesph update)
 
 
 ```
