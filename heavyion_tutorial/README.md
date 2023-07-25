@@ -17,11 +17,16 @@ root@24703fed6010:/work#
 ```
 cd /work/rivet_analyses
 ```
-Let's compare the pp200.yoda file that we created last time to the sample analysis in the tutorial directory (STAR_2006_I709170) to the data! First, we need to recompile the analysis - 
+Let's compare the pp200.yoda file that we created last time to the sample analysis in the tutorial directory (STAR_2006_I709170) to the data!  
 
+Make sure the STAR_2006_I709170 analysis is in the directory. If not, you can copy it over
 ```
-root@22d43b69f763:/work/rivet_analyses# rm RivetSTAR_2006_I709170.so 
-root@22d43b69f763:/work/rivet_analyses# rivet-build RivetSTAR_2006_I709170.so STAR_2006_I709170.cc
+cp ../tutorial/STAR_2006_I709170.* . 
+```
+Now, we need to recompile the analysis -
+```
+rm RivetSTAR_2006_I709170.so 
+rivet-build RivetSTAR_2006_I709170.so STAR_2006_I709170.cc
 ```
  
  4.) The moment we have all been waiting for... <br>
