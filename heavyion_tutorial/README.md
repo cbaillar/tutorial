@@ -4,58 +4,25 @@
 
 1.) Create a **separate** terminal window. In that window, run:
 ```bash
-docker pull hepstore/rivet
+docker run -it -v /Users/rkework/WORK/JETSCAPE/jetscape_schoo_summer2023:/work/ --name myRivet --rm -p 8888:8888 hepstore/rivet:3.1.8
 ```
 Even if you've pulled it before, try pulling to make sure it is up-to-date.
 
-Now, we can run another docker container and mount it onto the same directory we ran Jetscape in previously. Let's go ahead and change to that directory.
-```bash
-cd ~/jetscape-rivet-docker
-```
-2.) Now, let's run a container:
-```bash
-docker run -it --rm -v ~/jetscape-rivet-docker:/home/jetscape-rivet-user --name myRivet hepstore/rivet
-```
-<details>
-<summary>A brief explanation of each option in the command:</summary>
- 
-* -it creates an interactive terminal for the container
-* --rm Will remove the container when you exit your container. This is not a big deal though since your progress will be saved through your mounted directory.
-* -v "mounts" your container onto a directory on your local computer. This will save you from having to copy files back and forth between your local computer and your container.
-* --name names your container. If you don't give your container a name, docker will give it a random and perhaps fun name :). You can check out the names of all of your containers by using the ```docker container ls``` command
-* The last argument is the docker image: ```hepstore/rivet```! <br>
-For more, run
-```bash
-docker run --help
-```
-There are a lot more!
-
-</details>
-
-<details>
-<summary>More options for those interested:</summary>
- 
-* -p XXXX:XXXX where X = a digit. This will use a specified port to run the container. **WARNING**: Since we already ran -p 8888:8888 for the jetscaperivet container, you will get an error if you try running another container on that port.
-
-</details>
 
 To know that you have successfully opened the container, you should see something like:
 ```ruby
 root@24703fed6010:/work#
 ```
 3.) To run rivet-mkhtml, we want to be in the same directory as the **.yoda** files that we want to visualize:
-```bash
-cd /home/jetscape-rivet-user
 ```
-Let's compare the pp200.yoda file that we created last time to the sample analysis in the tutorial directory (STAR_2006_I709170). First, we need to make sure all .yoda files are in the same directory
-```bash
-mv rivet_analyses/pp200.yoda tutorial/pp200.yoda
+cd /work/rivet_analyses
 ```
-**Before moving on,** let's make sure this move was successful!
-```bash
-cd tutorial && ls *.yoda
+Let's compare the pp200.yoda file that we created last time to the sample analysis in the tutorial directory (STAR_2006_I709170) to the data! First, we need to recompile the analysis - 
+
 ```
-Output should be: ```STAR_2006_I709170.yoda  pp200.yoda```
+root@22d43b69f763:/work/rivet_analyses# rm RivetSTAR_2006_I709170.so 
+root@22d43b69f763:/work/rivet_analyses# rivet-build RivetSTAR_2006_I709170.so STAR_2006_I709170.cc
+```
  
  4.) The moment we have all been waiting for... <br>
  :tada: let's visualize our pp200 analysis from last session: :tada:
@@ -78,6 +45,8 @@ Open another terminal and run the myJetscapeRivet container.
 ```
 docker run -it -v ~/jetscape-rivet-docker:/home/jetscape-rivet-user --name myJetscapeRivet --rm -p 8888:8888 tmengel/jetscaperivet:latest
 ```
+
+This will basically start our heavy ion analysis! 
 
 Now, we will put our calibration file in a new working directory.
 ```
@@ -117,11 +86,12 @@ cd ../examples
 
 ### Step 1: Source Rivet and Make Analysis
 Make sure to source Rivet and get analyses template files.
+
 ```
 source /home/jetscape-rivet-user/RIVET/local/rivetenv.sh
 
 cd /home/jetscape-rivet-user/rivet_analyses/heavyion
-rivet-mkanaylsis HEAVY_ION_ANALYSIS
+rivet-mkanalysis HEAVY_ION_ANALYSIS
 ```
 
 ### Step 2: Edit JETSCAPE file
@@ -186,7 +156,7 @@ Run JETSCAPE to get our output files.
 For pbpb:
 ```
 cd /home/jetscape-rivet-user/JETSCAPEFIFO/build
-./runJetscape ../config/jetscape_user_pbpb-grid.xml
+./runJetscape ../config/jetscape_user_pbpb_grid.xml
 ```
 This will take some time, so let's start on our Rivet analysis.
 
@@ -211,15 +181,3 @@ ls -alrth
 less PbPb2760.yoda
 ```
 
-### Step 6: Rivet-Make html (Joesph update)
-
-
-```
-docker run -it --rm hepstore/rivet
-
-```
-
-```
-rivet-mkhtml PbPb2760.yoda
-
-```
