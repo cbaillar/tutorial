@@ -167,7 +167,7 @@ cd /home/jetscape-rivet-user/JETSCAPEFIFO/build
 This will take some time, so let's start on our Rivet analysis.
 
 ### Step 3 a : INCASE you dont have JETSCAPE running in the docker yet - please download a sample hepmc file from here -
-
+https://drive.google.com/file/d/1hJ0gtYOJ-JrjXcCpoDtRGESiJB8p8pZW/view?usp=sharing
 
 ### Step 4: Edit files for Rivet Analysis
 Using your preferred text editor, modify HEAVY_ION_ANALYSIS.cc (/home/jetscape-rivet-user/rivet_analyses/heavyion/HEAVY_ION_ANALYSIS.cc)
