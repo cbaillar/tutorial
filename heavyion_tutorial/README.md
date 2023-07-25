@@ -27,6 +27,7 @@ Now, we need to recompile the analysis -
 ```
 rm RivetSTAR_2006_I709170.so 
 rivet-build RivetSTAR_2006_I709170.so STAR_2006_I709170.cc
+rivet --pwd -a STAR_2006_I709170 --ignore-beams -o pp200.yoda /home/jetscape-rivet-user/JETSCAPEFIFO/build/myHepmcoutput.hepmc
 ```
  
  4.) The moment we have all been waiting for... <br>
