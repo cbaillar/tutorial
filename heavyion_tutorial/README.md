@@ -193,7 +193,7 @@ Once in, let's change directories and run rivet-mkhtml like we did at the beginn
 
 ```bash
 cd /work/rivet_analyses/heavyion
- rivet-mkhtml --pwd PbPb2760.yoda
+rivet-mkhtml --pwd PbPb2760.yoda
 ```
 
 Congrats on your first RIVET heavy ion analysis!
