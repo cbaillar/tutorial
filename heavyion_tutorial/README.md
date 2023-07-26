@@ -4,9 +4,8 @@
 
 1.) Create a **separate** terminal window. In that window, run:
 ```bash
-docker run -it -v ~/jetscape-rivet-docker:/work/ --name myRivet --rm -p 8888:8888 hepstore/rivet:3.1.8
+docker run -it -v ~/jetscape-rivet-docker:/work/ --name myRivet --rm hepstore/rivet:3.1.8
 ```
-Even if you've pulled it before, try pulling to make sure it is up-to-date.
 
 
 To know that you have successfully opened the container, you should see something like:
@@ -29,7 +28,7 @@ rm RivetSTAR_2006_I709170.so
 rivet-build RivetSTAR_2006_I709170.so STAR_2006_I709170.cc
 rivet --pwd -a STAR_2006_I709170 --ignore-beams -o pp200.yoda /home/jetscape-rivet-user/JETSCAPEFIFO/build/myHepmcoutput.hepmc
 ```
- 
+
  4.) The moment we have all been waiting for... <br>
  :tada: let's visualize our pp200 analysis from last session: :tada:
  ```bash
@@ -38,7 +37,7 @@ rivet --pwd -a STAR_2006_I709170 --ignore-beams -o pp200.yoda /home/jetscape-riv
  <details>
 <summary>More rivet-mkhtml options for those interested:</summary>
   
-* -errs plots error bars from your monte carlo data
+* -errs plots error bars from your Monte Carlo data
 * -o specifies output folder <br>
 For more, run 
 ```bash
@@ -102,9 +101,9 @@ rivet-mkanalysis HEAVY_ION_ANALYSIS
 
 ### Step 2: Edit JETSCAPE file
 
-Using your preferred text editor, modify jetscape_user_pbpb-grid.xml
+Using your preferred text editor, modify jetscape_user_pbpb_grid.xml
 
-Change the following values in the JETSCAPEFIFO/config/jetscape_user_pbpb-grid.xml file
+Change the following values in the JETSCAPEFIFO/config/jetscape_user_pbpb_grid.xml file
 ```
 <nEvents> 1000 </nEvents>
 <setReuseHydro> true </setReuseHydro>
@@ -187,3 +186,14 @@ ls -alrth
 less PbPb2760.yoda
 ```
 
+### Step 6: Visualize the analysis
+Let's go back in the myRivet docker container to run rivet-mkhtml.
+
+Once in, let's change directories and run rivet-mkhtml like we did at the beginning!
+
+```bash
+cd /work/rivet_analyses/heavyion
+ rivet-mkhtml --pwd PbPb2760.yoda
+```
+
+Congrats on your first RIVET heavy ion analysis!
