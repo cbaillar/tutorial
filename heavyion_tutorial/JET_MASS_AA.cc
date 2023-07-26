@@ -77,10 +77,10 @@ namespace Rivet {
       fastjet::contrib::RecursiveSymmetryCutBase::SymmetryMeasure  symmetry_measure = fastjet::contrib::RecursiveSymmetryCutBase::scalar_z;
 
       fastjet::contrib::SoftDrop sd_def(beta_default, z_cut_default,
-					symmetry_measure, 1);
+					symmetry_measure, 0.4);
 
       fastjet::contrib::SoftDrop sd_stg(beta_strong, z_cut_strong,
-					symmetry_measure, 1);
+					symmetry_measure, 0.4);
       
       PseudoJets parts;
       
